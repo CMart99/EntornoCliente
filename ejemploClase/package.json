@@ -22,5 +22,7 @@
     "eslint": "^6.5.1",
     "jsdoc": "^3.6.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "braces": "^2.3.1"
+  }
 }
