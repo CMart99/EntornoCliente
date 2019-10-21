@@ -1,0 +1,22 @@
+{
+  "name": "ejemploclase",
+  "version": "1.0.0",
+  "description": "ejemplo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CMart99/JS.git"
+  },
+  "author": "Carlos Martinez Aldayturriaga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CMart99/JS/issues"
+  },
+  "homepage": "https://github.com/CMart99/JS#readme",
+  "devDependencies": {
+    "eslint": "^6.5.1"
+  }
+}
