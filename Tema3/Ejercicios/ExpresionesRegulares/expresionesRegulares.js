@@ -7,11 +7,13 @@
 //Por ejemplo: http://www.prueba.es?ejemplo=1 =>no valido
 //Por ejemplo: http://www.prueba.es => No valido
 //Por ejemplo: https://www.prueba?hola=1&holita=2&holar=3 =>No valido
-
-function esValidaURL(url){
-
-    let validador = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
-    return validador.test(url);
+function esValidaURL(url) {
+    let expresion = /^((http|https):\/\/)+(www\.)?([a-zA-Z0-9])+(\.com|\.es)+(\?)([a-zA-Z0-9])+(=)([a-zA-Z0-9])+((&)?([a-zA-Z0-9])+(=)([a-zA-Z0-9])+)+$/
+    let resultado = false;
+    if (expresion.test(url)) {
+        resultado = true;
+    }
+    return resultado;
 }
 
 
@@ -21,24 +23,28 @@ function esValidaURL(url){
 //Tiene que haber un carácter !,?,-,$ o _
 //Tiene que tener al menos una letra Mayúscula
 //Ayuda: Pueden usarse varias expresiones regulares para validar el password
-function esValidaPassword(password){
- 
-    let filtro = /^(?=.*[a-z]{3})(?=.*[A-Z])(?=.*[0-9]{4})(?=.*[!@#\$%\^&\*])(?=.{8,})/
-    return filtro.test(password);
+function esValidaPassword(password) {
+    let Mayuscula = /.*([A-ZÑ].*)+/g;
+    let letras = /(.*([a-z]).*){4,}/gi
+    let numeros = /(.*([0-9]).*){4,}/g
+    let caracter = /(.*([!|?|-|$|_]).*)/g
+    let resultado = false;
+    if (Mayuscula.test(password)) {
+        if (letras.test(password)) {
+            if (numeros.test(password)) {
+                if (caracter.test(password)) {
+                    resultado = true;
+                }
+            }
+        }
 
-    //He puesto que sean minimo 3 letras porque una tiene que ser mayúscula obligatoriamente
-    // y contando con la mayúscula ya serían 4 letras mínimo.
+    }
+    return resultado;
 }
 
 //Función que elimina todos los caracterés que no sean letras y
 //números de una texto
-function eliminaCaracteresRaros(string){
-    
-    var caracteres = "!@#$^&%*()+=-[]\/{}|:<>?,.";
-
-    for (var i = 0; i < caracteres.length; i++) {
-        string = string.replace(new RegExp("\\" + caracteres[i], "gi"), "");
-    }
-
-    return string;
+function eliminaCaracteresRaros(texto) {
+    let expresion = /([^A-Z0-9áéíóúüñ])/gi;
+    return texto.replace(expresion, "");
 }
