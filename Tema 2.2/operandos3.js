@@ -5,65 +5,55 @@
 //Devuelves -1 si a es menor que b
 //Devuelves 0 si a es igual b
 
-function quienEsMayor(a,b){
- 
-    if(a > b){
-        console.log("a es mayor");
-    }else if(a < b){
-        console.log("b es mayor");
-    }else{
-    console.log("a y b son iguales");
+function quienEsMayor(a, b) {
+
+    if (a > b) {
+        return 1;
+    } else if (a == b) {
+        return 0;
+    } else {
+        return -1;
     }
 }
 
 //Dado un array de elementos, devuelve la suma de todos aquellos que los elementos sean pares
-function sumarElementosPares(elementos){
- 
-    let x = 0;
- 
-    for (let i = 0; i < elementos.length; i++) {
-       if (elementos[i] % 2 === 0) {
- 
-        x = x + elementos[i];
-       } 
+function sumarElementosPares(elementos) {
+    let num = 0;
+    for (x = 0; x < elementos.length; x++) {
+        if (elementos[x] % 2 === 0) {
+            num = num + elementos[x];
+        }
     }
-    return x;
+    return num;
 }
 
 //Dado un array de elementos devuelve el valor mas grande de todos ellos.
-function escogerValorMasGrande(elementos){
- 
-    return Math.max.apply(null, elementos);
+function escogerValorMasGrande(elementos) {
+    let num_mayor = elementos[0];
+    for (x = 0; x < elementos.length; x++) {
+        if (elementos[x] > num_mayor) {
+            num_mayor = elemetos[x];
+        }
+    }
+    return num_mayor;
 }
 
 //Dada una palabra cualquier, devuelve la palabra alreves, por ejemplo: "HOLA" => "ALOH"
-function invertirUnaPalabra(palabra){
- 
-    let tam = palabra.length-1;
-    let resultado = "";
- 
-    while(tam >= 0){
-        resultado += palabra.charAt(tam);
-        tam--; 
+function invertirUnaPalabra(String) {
+    let cadinvertida = "";
+    for (x = 0; x <= String.length; x++) {
+        cadinvertida = cadinvertida + String.charAt(String.length - x)
     }
- 
-    return resultado;
- 
+    return invertida;
 }
 
 //Dada un array, cuenta el numero de elementos impares que contiene
-function contarElementosImpares(elementos){
- 
-    let x = 0;
- 
-    for (let i = 0; i < elementos.length; i++) {
-       if (elementos[i] % 2 !== 1)  {
- 
-        x++;
-       } 
+function contarElementosImpares(String) {
+    let num = 0;
+    for (x = 0; x < String.length; x++) {
+        if (String[x] % 2 !== 0) {
+            num++;
+        }
     }
-    return x;
- 
+    return num;
 }
-
-
