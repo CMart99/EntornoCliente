@@ -7,6 +7,7 @@
 //Por ejemplo: http://www.prueba.es?ejemplo=1 =>no valido
 //Por ejemplo: http://www.prueba.es => No valido
 //Por ejemplo: https://www.prueba?hola=1&holita=2&holar=3 =>No valido
+
 function esValidaURL(url) {
     let expresion = /^((http|https):\/\/)+(www\.)?([a-zA-Z0-9])+(\.com|\.es)+(\?)([a-zA-Z0-9])+(=)([a-zA-Z0-9])+((&)?([a-zA-Z0-9])+(=)([a-zA-Z0-9])+)+$/
     let resultado = false;
@@ -25,15 +26,21 @@ function esValidaURL(url) {
 //Ayuda: Pueden usarse varias expresiones regulares para validar el password
 function esValidaPassword(password) {
     let Mayuscula = /.*([A-ZÑ].*)+/g;
-    let letras = /(.*([a-z]).*){4,}/gi
+    let minusculas = /.*([a-z].*){3,}/g;
+    let letras = /(.*([a-z]).*){4,}/gi // Al menos tres letras minúsculas
     let numeros = /(.*([0-9]).*){4,}/g
+    let ceros = /[0]/g; // Controla que no haya ceros
     let caracter = /(.*([!|?|-|$|_]).*)/g
     let resultado = false;
     if (Mayuscula.test(password)) {
-        if (letras.test(password)) {
-            if (numeros.test(password)) {
-                if (caracter.test(password)) {
-                    resultado = true;
+        if (minusculas.test(password)) {
+            if (letras.test(password)) {
+                if (numeros.test(password)) {
+                    if (!ceros.test(password)) { // Controla que no haya ceros
+                        if (caracter.test(password)) {
+                            resultado = true;
+                        }
+                    }
                 }
             }
         }
@@ -42,9 +49,9 @@ function esValidaPassword(password) {
     return resultado;
 }
 
-//Función que elimina todos los caracterés que no sean letras y
-//números de una texto
+//Función que elimina todos los caracteres que no sean letras y
+//números de un texto
 function eliminaCaracteresRaros(texto) {
-    let expresion = /([^A-Z0-9áéíóúüñ])/gi;
+    let expresion = /([^A-Z0-9áéíóúüÁÉÍÓÚÜñÑ -_])/gi;
     return texto.replace(expresion, "");
 }
