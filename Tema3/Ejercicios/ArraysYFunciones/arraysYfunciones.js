@@ -47,7 +47,7 @@ let funcion = (especie) => alert(sumarVidas(especie));
 // Esta función debe ejecutarse 10 segundos después de ejecutarse.
 
 function dameAnimales(especie, raza) {
-    let funcion = (especie, raza) => console.log(listadoAnimales.filter(x => (x.especie === especie)).filter(x => (x.raza === raza)).sort().reverse());
+    let funcion = (especie, raza) => console.log(listadoAnimales.filter(x => (x.especie === especie)).filter(x => (x.raza === raza)).sort(up));
     setTimeout(
         function () {
             return funcion(especie, raza);
@@ -63,11 +63,11 @@ function dameAnimales(especie, raza) {
 
 function incluirAnimal() {
     let vida = listadoAnimales.findIndex(x => x.vida % 2 === 0);
-    listadoAnimales.sort((x, y) => y.vida - x.vida);
+    listadoAnimales.sort((x, y) => y.vida.localeCompare(x.vida.localeCompare));
     let nombre = listadoAnimales[0].nombre;
-    listadoAnimales.sort((x, y) => x.especie.length - y.especie.length);
+    listadoAnimales.sort((x, y) => x.especie.length.localeCompare(y.especie.length));
     let especie = listadoAnimales[0].especie;
-    listadoAnimales.sort((x, y) => x.nombre - y.nombre);
+    listadoAnimales.sort((x, y) => x.nombre.localeCompare(y.nombre));
     let raza = listadoAnimales[0].raza;
     console.log(nombre);
     console.log(especie);
