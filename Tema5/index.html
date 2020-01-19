@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Ejemplo Ajax</title>
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/funcionesAjax.js" defer></script>
+    <script src="js/pruebas.js" defer></script>
+</head>
+<body>
+<div id="spinner" class="spinner">
+    <div class="dot1"></div>
+    <div class="dot2"></div>
+</div>
+
+<!--DATOS-->
+<div>
+    <h1>Datos</h1>
+    <div>
+        <button onclick="funcionAjaxAsincronaJSON();" >Obtener datos</button>
+    </div>
+    <div>
+        <div id="resultadoAsincronoJSON"></div>
+    </div>
+</div>
+
+<!--BUSCAR POR NOMBRE-->
+<div>
+    <form id="formulario" action="">
+    <div>
+        <h2>Búsqueda</h2>
+        <label>Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+    </div>
+    <input type="submit" id="boton" value="Enviar"/>
+    </form>
+</div>
+<div id="respuesta"></div>
+
+<!--BUSCAR POR SELECT-->
+<div>
+    <form id="formularioSelect" action="">
+    <div>
+        <h2>SELECT</h2>
+        <select name="select" id="fecha_lanz" name="fecha_lanz">
+            <option value="x">--Selecciona una Fecha--</option> 
+            <option value="">2019/06/17</option>
+            <option value="">2019/09/25</option>
+            <option value="">2019/12/31</option>
+          </select>
+    </div>
+    <input type="submit" id="boton2" value="Mostrar Habitaciones"/>
+    </form>
+</div>
+    <div id="selectRespuesta"></div>
+
+<!--INSERTAR-->
+    <div>
+        <form id="formularioInsertar" action="">
+        <div>
+            <h2>INSERTAR</h2>
+            <label>Nombre:</label>
+            <input type="text" id="nombre2" name="nombre2">
+            <label>Fecha de Lanzamiento:</label>
+            <input type="text" id="fecha_lanz" name="fecha_lanz">
+            <label>Versión:</label>
+            <input type="text" id="version" name="version">
+            <label>Peso:</label>
+            <input type="text" id="peso" name="peso">
+
+        </div>
+        <input type="submit" id="boton3" value="Insertar"/>
+        </form>
+    </div>
+    <div id="respuestaInsertar"></div>
+ 
+</body>
+</html>
