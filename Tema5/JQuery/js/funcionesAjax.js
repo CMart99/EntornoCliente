@@ -115,8 +115,8 @@ function realizarPeticionAsincrona(){
     miXHR.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     miXHR.onreadystatechange = comprobarEstadoPeticion;
     
-    let datos = "nombre="+nombre;
-    miXHR.send(datos);
+    let data = "nombre="+nombre;
+    miXHR.send(data);
 
 }
 
@@ -167,14 +167,14 @@ function comprobarEstadoPeticion2(){
 }
 
 function realizarPeticionAsincrona2(){
-    let habitacion = document.getElementById("habitacion").value;
+    let tipo = document.getElementById("tipo").value;
 
     miXHR = new objetoXHR();
     miXHR.open("POST", "servidor/datosSelect.php", true);
     miXHR.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     miXHR.onreadystatechange = comprobarEstadoPeticion2;
     
-    let datos3 = "habitacion="+habitacion;
+    let datos3 = "tipo="+tipo;
     miXHR.send(datos3);
 
 }
