@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 
-<head lang="es_ES">
-    <meta charset="UTF-8">
-    <title>Ejemplo Ajax</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/funcionesAjax.js" defer></script>
-    <script src="js/tests.js" defer></script>
+<head lang="en">
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <title>Búsqueda de Distribuciones</title>
+    <link rel="stylesheet" href="css/css.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/funcionesJquery.js" defer></script>
 </head>
 
 <body>
@@ -15,71 +15,45 @@
         <div class="dot2"></div>
     </div>
 
-   <!--/////////////////////////////DATOS/////////////////////////////--> 
 
     <div>
-        <h1>DATOS</h1>
-        <div>
-            <button onclick="funcionAjaxAsincronaJSON();">Obtener datos</button>
-        </div>
-        <div>
-            <div id="resultadoAsincronoJSON"></div>
-        </div>
-    </div>
+        <h1>Distribuciones</h1>
+        <form id="formularioVer" action="">
 
-    <!--/////////////////////////////BÚSQUEDA/////////////////////////////--> 
-
-    <div>
-        <form id="formulario" action="">
-            <div>
-                <h2>BUSCAR</h2>
-                <label>Nombre:</label>
-                <input type="text" id="nombre" name="nombre">
-            </div>
-            <input type="submit" id="boton" value="Enviar" />
+            <input type="submit" id="botonVer" value="Obtención de Datos" />
         </form>
     </div>
-    <div id="respuesta"></div>
+    <div id="resultadoV">
 
-    <!--/////////////////////////////SELECT/////////////////////////////--> 
+    </div>
+
 
     <div>
-        <form id="formularioSelect" action="">
+        <h3>Buscar por Nombre</h3>
+        <form id="formularioBusqueda" action="">
             <div>
-                <h2>Visualizar DB</h2>
-                <select name="select" id="tipo" name="tipo">
-                    <option value="none">--Selecciona un Tipo--</option>
-                    <option value="Windows">Windows</option>
-                    <option value="Linux">Linux</option>
-                </select>
+                <label for="nombre">Nombre</label>
+                <input type="text" value="" name="nombre" id="nombre" />
             </div>
-            <input type="submit" id="boton2" value="Mostrar Distribuciones" />
+            <input type="submit" id="botonBusqueda" value="Enviar" />
         </form>
     </div>
-    <div id="selectResponse"></div>
 
-    <!--/////////////////////////////INSERT/////////////////////////////--> 
+    <div id="result"></div>
+
 
     <div>
-        <form id="formularioInsert" action="">
+        <h3>Insertar Distro</h3>
+        <form id="formularioInsertar" action="">
             <div>
-                <h2>AÑADIR DISTRIBUCIONES AL SISTEMA</h2>
-                <label>Nombre:</label>
-                <input type="text" id="nombre2" name="nombre2">
-                <label>Fecha de Lanzamiento:</label>
-                <input type="date" id="fecha_lanz" name="fecha_lanz">
-                <label>Versión:</label>
-                <input type="text" id="version" name="version">
-                <label>Tipo de Distribución:</label>
-                <input type="text" id="tipo_distro" name="tipo_distro">
-                <label>Peso:</label>
-                <input type="text" id="peso" name="peso">
-
+                <label for="nombreIn">Nombre</label>
+                <input type="text" value="" name="nombreIn" id="nombreIn" />
             </div>
-            <input type="submit" id="boton3" value="Insertar" />
+            <input type="submit" id="botonIn" value="Insertar" />
         </form>
     </div>
-    <div id="insertResponse"></div>
+
+    <div id="resultI"></div>
 
 </body>
 

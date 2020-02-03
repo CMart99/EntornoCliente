@@ -1,5 +1,5 @@
 <?php
-
+sleep(1);
 header('Content-Type: application/json');
 header('Cache-Control: no-cache, must-revalidate');
 
@@ -9,23 +9,19 @@ $pass = "";
 $db = "distroada";
 
 $conn = mysqli_connect($server, $user, $pass, $db);
+$conn->set_charset("utf8");
 
 $nombre = $_POST['nombre'];
-$fecha_lanz = $_POST['fecha_lanz'];
-$version = $_POST['version'];
-$tipo = $_POST['tipo_distro'];
-$peso = $_POST['peso'];
 
+$query = "INSERT INTO distribuciones (nombre,fecha_lanz,version,tipo,peso) VALUES ('$nombre','30-01-2020','19.04','Linux','4Gb')";
 
-$query = "INSERT INTO distribuciones (nombre,fecha_lanz,version,tipo,peso) VALUES ($nombre,$fecha_lanz,$version,$tipo,$peso)";
+$insertResult = mysqli_query($conn, $query);
 
-$resultInsert = mysqli_query($conn, $query);
+$iResult = array();
 
-$resultI = array();
-
-while ($col = mysqli_fetch_array($resultInsert)) {
-    $resultI[] = $col;
+while ($columna = mysqli_fetch_array($insertResult)) {
+    $iResult[] = $columna;
 }
-echo json_encode($resultI);
+echo json_encode($iResult);
 
-mysqli_close($conn);
+mysqli_close($conexion);
